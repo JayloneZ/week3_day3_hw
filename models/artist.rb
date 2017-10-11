@@ -4,7 +4,8 @@ require_relative '../db/sql_runner.rb'
 
 class Artist
 
-  attr_reader :id, :stage_name
+  attr_reader :id
+  attr_accessor :stage_name
   def initialize(options)
     @id = options['id'] if options['id']
     @stage_name = options['stage_name']
