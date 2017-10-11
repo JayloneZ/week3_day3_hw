@@ -7,7 +7,7 @@ class Artist
   attr_reader :id
   attr_accessor :stage_name
   def initialize(options)
-    @id = options['id'] if options['id']
+    @id = options['id'].to_i if options['id']
     @stage_name = options['stage_name']
   end
 

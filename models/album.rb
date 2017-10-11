@@ -7,10 +7,10 @@ class Album
 attr_reader :id, :artist_id
 attr_accessor :album_title, :genre
 def initialize(options)
-  @id = options['id'] if options['id']
+  @id = options['id'].to_i if options['id']
   @album_title = options['album_title']
   @genre = options['genre']
-  @artist_id = options['artist_id']
+  @artist_id = options['artist_id'].to_i
 end
 
 def save()
@@ -74,13 +74,18 @@ def update()
   SqlRunner.run(sql, values)
 end
 
+def find(id)
+  sql = "
+    
+  "
+
 def show_artist
   sql = "
     SELECT * FROM artists
     WHERE id = $1
   "
   value = [@artist_id]
-  Artist.new(SqlRunner.run(sql, value))
+  Artist.new(SqlRunner.run(sql, value)[0])
 end
 
 end
